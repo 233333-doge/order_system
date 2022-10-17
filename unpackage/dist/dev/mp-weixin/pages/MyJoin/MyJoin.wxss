@@ -1,0 +1,44 @@
+.itemCourse.data-v-691e0906 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30rpx;
+  height: 120rpx;
+  width: 630rpx;
+  background-color: #fff;
+  border-radius: 30rpx;
+  padding: 30rpx;
+}
+.itemCourse .itemCourseLeft.data-v-691e0906 {
+  vertical-align: middle;
+}
+.contentTop.data-v-691e0906 {
+  display: flex;
+  align-items: center;
+}
+.contentTop .course.data-v-691e0906 {
+  max-width: 250rpx;
+  font-size: 40rpx;
+  margin: 0 20rpx;
+}
+.contentTop .class.data-v-691e0906 {
+  font-size: 30rpx;
+  font-weight: 300;
+}
+.contentBottom.data-v-691e0906 {
+  margin: 30rpx 0 0 0;
+  font-size: 24rpx;
+  color: #8a8a8a;
+}
+.itemCourseRight image.data-v-691e0906 {
+  vertical-align: middle;
+  width: 50rpx;
+  height: 50rpx;
+}
+.yes.data-v-691e0906 {
+  color: green;
+}
+.no.data-v-691e0906 {
+  color: #ccc;
+}
+
