@@ -1,8 +1,0 @@
-{
-  "devDependencies": {
-    "vuex": "^4.0.2"
-  },
-  "dependencies": {
-    "uview-ui": "^2.0.31"
-  }
-}
