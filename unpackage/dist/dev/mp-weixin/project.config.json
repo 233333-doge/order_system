@@ -16,7 +16,7 @@
     }
   },
   "compileType": "miniprogram",
-  "libVersion": "2.17.0",
+  "libVersion": "2.27.0",
   "appid": "wxbfda68feb3d17b30",
   "projectname": "order_system",
   "condition": {},

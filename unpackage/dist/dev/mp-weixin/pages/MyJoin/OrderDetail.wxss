@@ -24,20 +24,15 @@
 .ContentItem .itemBottom .font.data-v-df607242 {
   color: #fff;
 }
-.ContentItem .itemBottom .yes.data-v-df607242 {
+.ContentItem .itemBottom .box.data-v-df607242 {
   width: 100rpx;
   height: 40rpx;
-  background-color: #1aad19;
   border-radius: 20rpx;
   text-align: center;
   line-height: 40rpx;
 }
-.ContentItem .itemBottom .no.data-v-df607242 {
-  width: 100rpx;
-  height: 40rpx;
-  background-color: #ff4b4b;
-  border-radius: 20rpx;
-  text-align: center;
-  line-height: 40rpx;
+.ContentItem .itemBottom .box .font.data-v-df607242 {
+  color: white;
+  font-size: 25rpx;
 }
 

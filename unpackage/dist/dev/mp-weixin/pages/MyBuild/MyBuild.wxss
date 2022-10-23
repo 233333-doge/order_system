@@ -71,10 +71,15 @@
   align-items: center;
   border-bottom: 1px solid #ccc;
 }
-.studentItem .itemLeft .yes.data-v-f55a4de8 {
-  color: green;
+.studentItem .itemLeft .box.data-v-f55a4de8 {
+  width: 100rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  text-align: center;
+  line-height: 40rpx;
 }
-.studentItem .itemLeft .no.data-v-f55a4de8 {
-  color: red;
+.studentItem .itemLeft .box .font.data-v-f55a4de8 {
+  color: white;
+  font-size: 25rpx;
 }
 

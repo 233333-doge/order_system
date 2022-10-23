@@ -14,11 +14,31 @@
 					<view class="time">
 						第{{item.time}}次上课
 					</view>
-					<view :class="item.type===0?'no':'yes'">
+					<!-- <view :class="item.type===0?'no':'yes'">
 						<view class="font">
 							{{item.type===0?'旷课':'已签到'}}
 						</view>
 						
+					</view> -->
+					<view v-if="item.type==0" class="box" style="display: inline-block;background-color: #ee7e2d;">
+						<view class="font">
+							未签到
+						</view>
+					</view>
+					<view v-if="item.type==1" class="box" style="display: inline-block;background-color: #1aad19;">
+						<view class="font">
+							已签到
+						</view>
+					</view>
+					<view v-if="item.type==2" class="box" style="display: inline-block;background-color: #ff4b4b;">
+						<view class="font">
+							旷课
+						</view>
+					</view>
+					<view v-if="item.type==3" class="box" style="display: inline-block;background-color: #42a5f5;">
+						<view class="font">
+							已请假
+						</view>
 					</view>
 				</view>
 			</view>
@@ -80,21 +100,32 @@
 		.font{
 			color: #fff;
 		}
-		.yes{
+		// .yes{
+		// 	width: 100rpx;
+		// 	height: 40rpx;
+		// 	background-color: #1aad19;
+		// 	border-radius: 20rpx;
+		// 	text-align: center;
+		// 	line-height: 40rpx;
+		// }
+		// .no{
+		// 	width: 100rpx;
+		// 	height: 40rpx;
+		// 	background-color: #ff4b4b;
+		// 	border-radius: 20rpx;
+		// 	text-align: center;
+		// 	line-height: 40rpx;
+		// }
+		.box{
 			width: 100rpx;
 			height: 40rpx;
-			background-color: #1aad19;
 			border-radius: 20rpx;
 			text-align: center;
 			line-height: 40rpx;
-		}
-		.no{
-			width: 100rpx;
-			height: 40rpx;
-			background-color: #ff4b4b;
-			border-radius: 20rpx;
-			text-align: center;
-			line-height: 40rpx;
+			.font{
+				color:white;
+				font-size: 25rpx;
+			}
 		}
 	}
 }

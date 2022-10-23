@@ -123,7 +123,10 @@
 												sessionId:uni.getStorageSync('sessionId'),
 											}).then(res=>{
 												if(res.code==200){
+												
 													uni.setStorageSync("id",res.data.id)
+													// else
+													// this.Login()
 												}
 												else{
 												wx.showModal({
@@ -168,6 +171,12 @@
 							wx.showModal({
 							     title: '提示',
 							     content: '签到成功',
+							   })
+						}else if(res.code===404)
+						{
+							wx.showModal({
+							     title: '提示',
+							     content: "您已签到，不可重复签到",
 							   })
 						}else{
 							wx.showModal({
@@ -241,6 +250,7 @@
 				// 			})
 			},
 			onTabItemTap(){
+				if(uni.getStorageSync("id"))
 				this.getJoinList()
 			},
 			onLoad(){
@@ -256,11 +266,9 @@
 	align-items: center;
 	justify-content:space-between;
 	margin: 30rpx;
-	height: 120rpx;
-	width: 630rpx;
 	background-color: #fff;
 	border-radius: 30rpx;
-	padding: 30rpx;
+	padding:30rpx;
 	.itemCourseLeft{
 		vertical-align: middle;
 	}

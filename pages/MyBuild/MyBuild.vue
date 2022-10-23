@@ -41,7 +41,7 @@
 					<uni-col :span="24" >
 						<uni-section title="请选择表格文件(只能选择一个)" type="line">
 							<view class="example-body">
-								<uni-file-picker  ref="filepicker" file-mediatype="all" :auto-upload="true" @select="selectFile"></uni-file-picker>
+								<uni-file-picker  ref="filepicker" file-mediatype="all"  @select="selectFile"></uni-file-picker>
 							</view>
 						</uni-section>
 					</uni-col>
@@ -60,23 +60,43 @@
 					<scroll-view 
 						:scroll-into-view="toView" 
 						scroll-y="true" 
-						style="max-height: 900rpx;" 
+						style="max-height: 950rpx;padding-bottom: 60rpx;" 
 						scroll-with-animation="true" 
 					>
 						
 						<view class="studentItem" v-for="(item,i) in orderedList" :key="i">
 							<view class="itemLeft">
 								<view class="name" style="margin-bottom: 10rpx;">学生姓名：{{item.studentName}}</view>
-								<view class="" style="display: inline;font-size: 26rpx;color: #ccc;">
+								<view class="" style="display: inline-block;font-size: 26rpx;color: #ccc;">
 									签到状态：
 								</view>
-								<view :class="item.type==0 ? 'no':'yes'" style="display: inline;">
-									{{item.type==0 ? '未签到':'已签到'}}
+								<view v-if="item.type==0" class="box" style="display: inline-block;background-color: #ee7e2d;">
+									<view class="font">
+										未签到
+									</view>
 								</view>
+								<view v-if="item.type==1" class="box" style="display: inline-block;background-color: #1aad19;">
+									<view class="font">
+										已签到
+									</view>
+								</view>
+								<view v-if="item.type==2" class="box" style="display: inline-block;background-color: #ff4b4b;">
+									<view class="font">
+										旷课
+									</view>
+								</view>
+								<view v-if="item.type==3" class="box" style="display: inline-block;background-color: #42a5f5;">
+									<view class="font">
+										已请假
+									</view>
+								</view>
+								<!-- <view :class="item.type==0 ? 'no':'yes'" style="display: inline;">
+									{{item.type==0 ? '未签到':'已签到'}}
+								</view> -->
 							</view>
 							<view class="itemRight">
-								<button v-if="!item.type"    type="primary" size="mini" @click="setLeave(item)">设置请假</button>
-								<button v-else   type="default" size="mini" disabled="true">已请假</button>
+								<button v-if="item.type===0||item.type===2"    type="primary" size="mini" @click="setLeave(item)">设置请假</button>
+								<!-- <button v-else   type="default" size="mini" disabled="true">已请假</button> -->
 							</view>
 						</view>
 						<view class="" v-if="!orderedList.length&&!loading" style="margin-top: 50rpx;">
@@ -114,21 +134,21 @@
 					},
 					class:"",
 					CourseList:[
-						{
-							coursename:"软件工程A",
-							class:"计算机三班",
-							creattime:"2022-10-04-21:34"
-						},
-						{
-							coursename:"高等数学",
-							class:"计算机三班",
-							creattime:"2022-10-04-21:34"
-						},
-						{
-							coursename:"大学英语",
-							class:"计算机三班",
-							creattime:"2022-10-04-21:34"
-						}
+						// {
+						// 	coursename:"软件工程A",
+						// 	class:"计算机三班",
+						// 	creattime:"2022-10-04-21:34"
+						// },
+						// {
+						// 	coursename:"高等数学",
+						// 	class:"计算机三班",
+						// 	creattime:"2022-10-04-21:34"
+						// },
+						// {
+						// 	coursename:"大学英语",
+						// 	class:"计算机三班",
+						// 	creattime:"2022-10-04-21:34"
+						// }
 					],
 					list:[
 						{
@@ -164,9 +184,10 @@
 
 				},
 				async submitCourse(){
+					console.log("Sdf")
 					this.form.teacherId=uni.getStorageSync("id")
 					uni.uploadFile({
-						url: `${config}/course/addcourse`,
+						url: `http://ab4e2brh4pv3.ngrok.xiaomiqiu123.top/course/addcourse`,
 						filePath: this.form.path,
 						name: 'file',
 						formData: {
@@ -194,7 +215,8 @@
 					})
 				},
 				async orderEnd(item){
-					await OrderEnd({courseId:item.id}).then(res=>{
+					console.log(item,"asd")
+					await OrderEnd({courseId:item.id,time:item.time}).then(res=>{
 						console.log(res)
 						this.getBuildList()
 					})
@@ -342,11 +364,22 @@
 	align-items: center;
 	border-bottom:1px solid #ccc ;
 	.itemLeft{
-		.yes{
-			color:green
-		}
-		.no{
-			color:red
+		// .yes{
+		// 	color:green
+		// }
+		// .no{
+		// 	color:red
+		// }
+		.box{
+			width: 100rpx;
+			height: 40rpx;
+			border-radius: 20rpx;
+			text-align: center;
+			line-height: 40rpx;
+			.font{
+				color:white;
+				font-size: 25rpx;
+			}
 		}
 	}
 }

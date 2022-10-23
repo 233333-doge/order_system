@@ -3,8 +3,6 @@
   align-items: center;
   justify-content: space-between;
   margin: 30rpx;
-  height: 120rpx;
-  width: 630rpx;
   background-color: #fff;
   border-radius: 30rpx;
   padding: 30rpx;
